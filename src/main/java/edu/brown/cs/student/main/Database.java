@@ -50,7 +50,7 @@ public class Database {
     prep = conn.prepareStatement("CREATE TABLE IF NOT EXISTS word("
         + "corpus_id INTEGER,"
         + "word TEXT,"
-        + "PRIMARY KEY (corpus_id),"
+        + "PRIMARY KEY (corpus_id)," // bad form, duplicates of the same word will have identical pkey's
         + "FOREIGN KEY (corpus_id) REFERENCES corpus(id)"
         + "ON DELETE CASCADE ON UPDATE CASCADE);"
         + "CREATE TABLE IF NOT EXISTS corpus("
